@@ -93,8 +93,13 @@
 							
 						case "2-mysql":
 							if(array_key_exists("errors",$_SESSION)) //any errors
-								foreach ($_SESSION["errors"] as $error) //print all the errors
-									echo "<p>$error</p>";
+								if (is_array($_SESSION["errors"]))
+								{
+									foreach ($_SESSION["errors"] as $error)
+									{
+										echo "<p>$error</p>";
+									}
+								}
 								
 							$_SESSION["errors"]=null;//reset
 								
